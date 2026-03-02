@@ -128,7 +128,7 @@ Improved feature set and modeling:
 
 ---
 
-## 5. Reuslts
+## 5. Results
 
 ### Final models:
 
@@ -151,20 +151,19 @@ These were chosen because:
 ![Benzina Forecast](reports/benzina_forecast.png)
 ![Gasolio Forecast](reports/gasolio_forecast.png)
 
+### Conclusions
+
+- The final models outperform the naïve baseline on the last 52 unseen weeks:
+  - **Benzina:** MAE improved from **0.0111 → 0.0076** (≈ **31%** error reduction)
+  - **Gasolio:** MAE improved from **0.0113 → 0.0108** (≈ **4%** error reduction)
+- Improvements are larger for Benzina, while Gasolio is harder to beat because its week-to-week changes are smaller and more stable.
+- The evaluation uses a time-based split (last 52 weeks) to avoid leakage and reflect a real forecasting scenario.
+
+### Limitations & Next Steps
+
+- The model does not explicitly include tax changes or policy shocks, which can cause sudden jumps.
+- Possible improvements: add external drivers (inflation, taxes), perform walk-forward cross-validation, and build an automated weekly forecasting script.
 ---
-
----
-
-### Forecast Visualization (Test Period)
-
-The following plots show **Real vs Predicted values** over the last 52 weeks (test set only).
-
-*(Insert here your test-period plots)*
-
-The models track price movements closely, capturing trend changes without excessive volatility or overfitting.
-
----
-
 
 ---
 
