@@ -16,11 +16,6 @@ project_root/
 │   ├── processed/          # Cleaned and engineered datasets
 │   └── processed/features_dataset_v2.csv
 │
-├── models/                 # Saved models (GBR for Benzina, Ridge for Gasolio)
-│   ├── gbr_benzina.pkl
-│   ├── ridge_gasolio.pkl
-│   ├── features_b.pkl
-│   └── features_g.pkl
 │
 ├── notebooks/
 │   ├── 01_exploration.ipynb
@@ -29,7 +24,6 @@ project_root/
 │   ├── 04_feature_engineering.ipynb
 │   ├── 05_training_v1.ipynb
 │   ├── 06_training_v2.ipynb
-│   └── 07_final_training.ipynb
 │
 ├── requirements.txt
 └── README.md
@@ -132,17 +126,9 @@ Improved feature set and modeling:
 * enriched features
 * updated Ridge / GBR models
 
-### **07_final_training.ipynb**
-
-Trains the final chosen models on **all data**:
-
-* GBR for Benzina
-* Ridge for Gasolio
-* saves the models and feature lists
-
 ---
 
-## 5. Modeling Choices
+## 5. Reuslts
 
 ### Final models:
 
@@ -155,13 +141,30 @@ These were chosen because:
 * they behaved well with limited weekly data
 * they generalized reliably without overfitting
 
-### LightGBM was tested but discarded
+### Model Performance
 
-It performed worse due to:
+| Model | Benzina MAE | Gasolio MAE |
+|-------|-------------|-------------|
+| Naïve | 0.0111 | 0.0113 |
+| Final Model | 0.0076 | 0.0108 |
 
-* small dataset size
-* high feature correlation
-* model complexity not suitable for this problem
+![Benzina Forecast](reports/benzina_forecast.png)
+![Gasolio Forecast](reports/gasolio_forecast.png)
+
+---
+
+---
+
+### Forecast Visualization (Test Period)
+
+The following plots show **Real vs Predicted values** over the last 52 weeks (test set only).
+
+*(Insert here your test-period plots)*
+
+The models track price movements closely, capturing trend changes without excessive volatility or overfitting.
+
+---
+
 
 ---
 
